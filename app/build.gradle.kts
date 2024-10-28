@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.koin)
+    implementation(libs.koin.android)
     testImplementation(libs.mockito)
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
