@@ -40,4 +40,20 @@ class VerifyBoardUseCaseTest {
 
         assert(result.boardStatus == BoardStatus.WIN)
     }
+
+    @Test
+    fun `verify that game is a draw`() = runTest {
+        val boardState = listOf(
+            listOf("X", "O", "X"),
+            listOf("O", "X", "O"),
+            listOf("O", "X", "O")
+        )
+
+        `when`(boardRepository.boardState).thenReturn(flowOf(boardState))
+        verifyBoardUseCase.verifyBoard()
+
+        val result = verifyBoardUseCase.boardUiState.first()
+
+        assert(result.boardStatus == BoardStatus.DRAW)
+    }
 }
