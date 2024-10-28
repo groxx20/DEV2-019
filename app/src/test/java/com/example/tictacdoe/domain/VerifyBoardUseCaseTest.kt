@@ -2,10 +2,8 @@ package com.example.tictacdoe.domain
 
 import com.example.tictacdoe.data.BoardRepository
 import com.example.tictacdoe.domain.model.BoardStatus
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
@@ -38,8 +36,8 @@ class VerifyBoardUseCaseTest {
         `when`(boardRepository.boardState).thenReturn(flowOf(boardState))
         verifyBoardUseCase.verifyBoard()
 
-        verifyBoardUseCase.boardUiState.collect {
-            assert(it.boardStatus == BoardStatus.WIN)
-        }
+        val result = verifyBoardUseCase.boardUiState.first()
+
+        assert(result.boardStatus == BoardStatus.WIN)
     }
 }
