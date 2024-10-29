@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BoardRepository {
 
-    val boardState: Flow<List<List<String>>>
+    val boardState: Flow<BoardData>
 
     fun updateBoard(row: Int, column: Int, value: String)
 

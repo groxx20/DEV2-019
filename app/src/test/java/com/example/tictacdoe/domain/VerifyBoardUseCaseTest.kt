@@ -1,5 +1,6 @@
 package com.example.tictacdoe.domain
 
+import com.example.tictacdoe.data.BoardData
 import com.example.tictacdoe.data.BoardRepository
 import com.example.tictacdoe.domain.model.BoardStatus
 import kotlinx.coroutines.flow.first
@@ -27,10 +28,12 @@ class VerifyBoardUseCaseTest {
 
     @Test
     fun `verify that game has a winner`() = runTest {
-        val boardState = listOf(
-            listOf("X", "X", "X"),
-            listOf("O", "", "O"),
-            listOf("X", "", "X")
+        val boardState = BoardData(
+            board = mutableListOf(
+                mutableListOf("X", "X", "X"),
+                mutableListOf("O", "", "O"),
+                mutableListOf("X", "", "X")
+            )
         )
 
         `when`(boardRepository.boardState).thenReturn(flowOf(boardState))
@@ -43,10 +46,12 @@ class VerifyBoardUseCaseTest {
 
     @Test
     fun `verify that game is a draw`() = runTest {
-        val boardState = listOf(
-            listOf("X", "O", "X"),
-            listOf("O", "X", "O"),
-            listOf("O", "X", "O")
+        val boardState = BoardData(
+            mutableListOf(
+                mutableListOf("X", "O", "X"),
+                mutableListOf("O", "X", "O"),
+                mutableListOf("O", "X", "O")
+            )
         )
 
         `when`(boardRepository.boardState).thenReturn(flowOf(boardState))

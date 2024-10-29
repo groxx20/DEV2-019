@@ -14,7 +14,7 @@ class VerifyBoardUseCase(private val boardRepository: BoardRepository) {
 
     suspend fun verifyBoard() {
         boardRepository.boardState.map {
-            mapBoardToUi(it)
+            mapBoardToUi(it.board)
         }.collect {
             uiState.tryEmit(it)
         }
