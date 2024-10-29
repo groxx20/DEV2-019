@@ -8,7 +8,7 @@ fun mapBoardToUi(board: List<List<String>>): BoardUi {
     val boardStatus = when {
         hasWinner -> BoardStatus.WIN
         !hasWinner && board.flatten().none { it.isEmpty() } -> BoardStatus.DRAW
-        else -> BoardStatus.GAME
+        else -> BoardStatus.PLAYING
     }
     return BoardUi(
         board = board,
