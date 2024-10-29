@@ -5,7 +5,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.tictacdoe.domain.model.BoardStatus
+import com.example.tictacdoe.ui.theme.TicTacDoeTheme
 import com.example.tictacdoe.ui.theme.Typography
 import com.example.tictacdoe.ui.theme.spacingLarge
 
@@ -16,4 +18,12 @@ fun StatusCell(status: BoardStatus) {
         text = status.name,
         style = Typography.titleLarge.copy(color = if (status == BoardStatus.WIN) Color.Green else Color.Blue)
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    TicTacDoeTheme {
+        StatusCell(status = BoardStatus.WIN)
+    }
 }

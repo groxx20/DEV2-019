@@ -28,15 +28,13 @@ class BoardViewModel(
     }
 
     fun updateBoard(row: Int, column: Int, value: String) {
-        viewModelScope.launch {
-            updateBoardUseCase.updateBoard(row, column, value)
-        }
+        updateBoardUseCase.updateBoard(row, column, value)
+
     }
 
     fun resetBoard() {
-        viewModelScope.launch {
-            resetBoardUseCase.resetBoard()
-        }
+        resetBoardUseCase.resetBoard()
     }
+
 
 }

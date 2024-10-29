@@ -10,6 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.tictacdoe.ui.theme.TicTacDoeTheme
 import com.example.tictacdoe.ui.theme.Typography
 import com.example.tictacdoe.ui.theme.boardCellSize
 import com.example.tictacdoe.ui.theme.smallBorder
@@ -29,5 +31,13 @@ fun BoardCell(isClickable: Boolean, value: String, onClick: () -> Unit) {
             text = value,
             style = Typography.titleLarge.copy(color = if (value == Constants.X) Color.Red else Color.Blue)
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CellPreview() {
+    TicTacDoeTheme {
+        BoardCell(isClickable = true, value = "X", onClick = {})
     }
 }

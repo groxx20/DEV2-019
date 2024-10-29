@@ -14,15 +14,12 @@ class BoardRepositoryImpl : BoardRepository {
     override fun updateBoard(row: Int, column: Int, value: String) {
 
         // Create a new board with the updated value, otherwise the flow won't update
-        val newBoard = state.value.board.mapIndexed { rowIndex, rowList ->
-            rowList.mapIndexed { columnIndex, cellValue ->
-                if (rowIndex == row && columnIndex == column) {
-                    value
-                } else {
-                    cellValue
-                }
-            }
-        }
+        val newBoard = state.value.board.mapIndexed { _, rowList ->
+            rowList.mapIndexed { _, cellValue -> cellValue }.toMutableList()
+        }.toMutableList()
+
+        // update the value on the new board
+        newBoard[row][column] = value
 
         state.tryEmit(BoardData(board = newBoard))
     }
