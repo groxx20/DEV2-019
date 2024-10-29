@@ -79,8 +79,6 @@ fun Board(viewModel: BoardViewModel = koinViewModel(), modifier: Modifier) {
 
             else -> {}
         }
-
-
     }
 }
 
