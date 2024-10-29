@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.tictacdoe.ui.cells.Board
 import com.example.tictacdoe.ui.theme.TicTacDoeTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +21,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             TicTacDoeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+
+                    Board(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -42,6 +45,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     TicTacDoeTheme {
-        Greeting("Android")
+        Greeting(name = "Welcome")
     }
 }

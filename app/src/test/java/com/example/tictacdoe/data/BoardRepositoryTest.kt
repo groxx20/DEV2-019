@@ -1,7 +1,5 @@
-package com.example.tictacdoe
+package com.example.tictacdoe.data
 
-import com.example.tictacdoe.data.BoardRepository
-import com.example.tictacdoe.data.BoardRepositoryImpl
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Before

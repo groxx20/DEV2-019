@@ -1,5 +1,6 @@
 package com.example.tictacdoe.presentation
 
+import com.example.tictacdoe.domain.ResetBoardUseCase
 import com.example.tictacdoe.domain.UpdateBoardUseCase
 import com.example.tictacdoe.domain.VerifyBoardUseCase
 import com.example.tictacdoe.domain.model.BoardStatus
@@ -27,6 +28,9 @@ class BoardViewModelTest {
 
     @Mock
     private lateinit var updateBoardUseCase: UpdateBoardUseCase
+
+    @Mock
+    private lateinit var resetBoardUseCase: ResetBoardUseCase
 
     private lateinit var viewModel: BoardViewModel
 
@@ -57,9 +61,8 @@ class BoardViewModelTest {
 
         `when`(verifyUseCase.boardUiState).thenReturn(flowOf(boardUi))
 
-        viewModel = BoardViewModel(verifyUseCase, updateBoardUseCase)
+        viewModel = BoardViewModel(verifyUseCase, updateBoardUseCase, resetBoardUseCase)
 
-        // Ensure to advance the dispatcher
         testDispatcher.scheduler.advanceUntilIdle()
 
         val result = viewModel.uiState.first()

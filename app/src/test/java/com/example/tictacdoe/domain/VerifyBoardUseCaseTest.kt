@@ -29,10 +29,10 @@ class VerifyBoardUseCaseTest {
     @Test
     fun `verify that game has a winner`() = runTest {
         val boardState = BoardData(
-            board = mutableListOf(
-                mutableListOf("X", "X", "X"),
-                mutableListOf("O", "", "O"),
-                mutableListOf("X", "", "X")
+            board = listOf(
+                listOf("X", "X", "X"),
+                listOf("O", "", "O"),
+                listOf("X", "", "X")
             )
         )
 
@@ -47,10 +47,10 @@ class VerifyBoardUseCaseTest {
     @Test
     fun `verify that game is a draw`() = runTest {
         val boardState = BoardData(
-            mutableListOf(
-                mutableListOf("X", "O", "X"),
-                mutableListOf("O", "X", "O"),
-                mutableListOf("O", "X", "O")
+            listOf(
+                listOf("X", "O", "X"),
+                listOf("O", "X", "O"),
+                listOf("O", "X", "O")
             )
         )
 
